@@ -1,0 +1,17 @@
+{% extends 'home.html' %}
+
+{% block content %}
+<div class="page-heading">
+    <section class="section">
+        <div class="card">
+            <div class="card-body">
+                <form class="form form-horizontal" method="POST" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    {{ form.as_p }}
+                    <button class="btn btn-success" type="submit">Crear</button>
+                </form>
+            </div>
+        </div>
+    </section>
+</div>
+{% endblock %}  

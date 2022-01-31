@@ -1,0 +1,18 @@
+{% extends 'home.html' %}
+
+{% block content %}
+<div class="page-heading">
+    <section class="section">
+        <div class="card">
+            <div class="card-body">
+                <form class="form form-horizontal" method="POST">
+                    {% csrf_token %}
+                    <h2>¿Deseas eliminar este libro?</h2>
+                    <button class="btn btn-danger" type="submit">Si</button>
+                    <a class="btn btn-warning" href="{% url 'app:book/list' %}">Regresar</a>
+                </form>
+            </div>
+        </div>
+    </section>
+</div>
+{% endblock %}

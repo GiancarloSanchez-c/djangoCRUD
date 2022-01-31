@@ -1,0 +1,68 @@
+{% extends 'home.html'%}
+
+{% block content %}
+{% include 'utils/_messages.html' %}
+<div class="page-heading">
+    <div class="page-title">
+        <div class="row">
+            <div class="col-12 col-md-6 order-md-1 order-last">
+                <h3>Lista de Autores</h3>
+            </div>
+            <div class="col-12 col-md-6 order-md-2 order-first">
+                <nav aria-label="breadcrumb" class="breadcrumb-header float-start float-lg-end">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item">
+                            <a href="{% url 'app:author/create' %}" class="btn btn-primary">Crear</a>
+                        </li>
+                    </ol>
+                </nav>
+            </div>
+        </div>
+    </div>
+    <section class="section">
+        <div class="card">
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th scope="col">#</th>
+                                <th scope="col">Nombres</th>
+                                <th scope="col">Apellidos</th>
+                                <th scope="col">País</th>
+                                <th scope="col">Imagen</th>
+                                <th scope="col">Acción</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for author in authors %}
+                                <tr>
+                                    <td>{{ forloop.counter }}</td>
+                                    <td>{{ author.name }}</td>
+                                    <td>{{ author.last_name }}</td>
+                                    <td>{{ author.country }}</td>
+                                    <td>
+                                        <div class="avatar bg-warning me-3">
+                                            <img src="{{ author.image.url }}" alt="" srcset="">
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="btn-group" role="group" aria-label="Basic example">
+                                            <a href="{% url 'app:author/update' author.id %}" class="btn btn-sm btn-warning">Editar</a>
+                                            <a href="{% url 'app:author/delete' author.id %}" type="button" class="btn btn-sm btn-danger">Eliminar</a>
+                                        </div>
+                                    </td>
+                                </tr>
+                            {% empty %}
+                                <tr>
+                                    <td colspan='5'>No hay registros creados</td>
+                                </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+{% endblock %}

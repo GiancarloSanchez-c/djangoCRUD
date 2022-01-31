@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Django</title>
+
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'static/css/bootstrap.css' %}">
+
+    <link rel="stylesheet" href="{% static 'static/vendors/perfect-scrollbar/perfect-scrollbar.css'%}">
+    <link rel="stylesheet" href="{% static 'static/vendors/bootstrap-icons/bootstrap-icons.css' %}">
+    <link rel="stylesheet" href="{% static 'static/css/app.css' %}">
+    <link rel="shortcut icon" href="{% static 'static/images/favicon.svg' %}" type="image/x-icon">
+</head>
+
+<body>
+    <div id="app">
+        {% include 'partials/sidebar.html' %}
+        <div id="main" class='layout-navbar'>
+           {% include 'partials/header.html' %}
+            <div id="main-content">
+
+               
+                {% block content %}{% endblock %}
+                {% include 'partials/footer.html'%}
+            </div>
+        </div>
+    </div>
+    <script src="{% static 'static/vendors/perfect-scrollbar/perfect-scrollbar.min.js' %}"></script>
+    <script src="{% static 'static/js/bootstrap.bundle.min.js' %}"></script>
+
+    <script src="{% static 'static/js/main.js' %}"></script>
+</body>
+
+</html>

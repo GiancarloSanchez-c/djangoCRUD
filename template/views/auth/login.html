@@ -1,0 +1,23 @@
+{% extends 'layouts/auth.html' %}
+
+{% block 'content' %}
+{% include 'utils/_messages.html' %}
+    
+    <form method="POST">
+        {% csrf_token %}
+        <div class="form-group position-relative has-icon-left mb-4">
+            <input type="text" class="form-control form-control-xl" placeholder="Usuario" name="username">
+            <div class="form-control-icon">
+                <i class="bi bi-person"></i>
+            </div>
+        </div>
+        <div class="form-group position-relative has-icon-left mb-4">
+            <input type="password" class="form-control form-control-xl" placeholder="Contraseña" name="password">
+            <div class="form-control-icon">
+                <i class="bi bi-shield-lock"></i>
+            </div>
+        </div>
+        <button class="btn btn-primary btn-block btn-lg shadow-lg mt-5">Iniciar Sesion</button>
+        <button class="btn btn-primary btn-block btn-lg shadow-lg mt-5">Crear Cuenta</button>
+    </form>
+{% endblock %}
